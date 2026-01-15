@@ -1,0 +1,293 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 96.1%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 96.1%;
+    --sidebar-foreground: 215.4 16.3% 46.9%;
+    --sidebar-primary: 221 83% 53%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 221 83% 53%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 214.3 31.8% 91.4%;
+    --sidebar-ring: 221 83% 53%;
+    
+    /* Google Ads specific colors */
+    --google-blue: 214 80% 51%;     /* rgb(26, 115, 232) - Clicks */
+    --google-blue-light: 214 80% 95%;
+    --google-red: 4 71% 50%;        /* rgb(217, 48, 37) - Impressions */
+    --google-yellow: 41 100% 49%;   /* rgb(249, 171, 0) - Conversions/CTR */
+    --google-green: 137 65% 34%;    /* rgb(30, 142, 62) - Cost */
+    --google-gray-50: 0 0% 98%;
+    --google-gray-100: 220 14% 96%;
+    --google-gray-200: 220 13% 91%;
+    --google-gray-300: 216 12% 84%;
+    --google-gray-600: 220 9% 46%;
+    --google-gray-700: 215 25% 27%;
+    --google-gray-900: 220 39% 11%;
+    
+    /* Custom gradients and colors - Bhagwa/Saffron theme */
+    --gradient-panda: linear-gradient(135deg, #FF9933, #FF6B00);
+    --gradient-panda-dark: linear-gradient(135deg, #E88A2D, #CC5500);
+    --saffron-primary: 28 100% 50%;
+    --saffron-light: 28 100% 60%;
+    --saffron-dark: 28 100% 40%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+  }
+}
+
+/* 3D Login Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(2deg); }
+  66% { transform: translateY(5px) rotate(-1deg); }
+}
+
+@keyframes bounce-gentle {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-5px) scale(1.05); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 153, 51, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(255, 107, 0, 0.6); }
+}
+
+@keyframes panda-wave {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-10deg); }
+  75% { transform: rotate(10deg); }
+}
+
+.float-animation { animation: float 6s ease-in-out infinite; }
+.bounce-gentle { animation: bounce-gentle 4s ease-in-out infinite; }
+.pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+.panda-wave { animation: panda-wave 3s ease-in-out infinite; }
+.float-delay-1 { animation-delay: 1s; }
+.float-delay-2 { animation-delay: 2s; }
+.bounce-delay-1 { animation-delay: 0.5s; }
+.bounce-delay-2 { animation-delay: 1.5s; }
+
+/* Google Invoice Modal Styles */
+.invoice-modal-bg { 
+  display: none; 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  background: rgba(0,0,0,0.37); 
+  z-index: 1001; 
+  align-items: center; 
+  justify-content: center; 
+}
+
+.invoice-modal-bg.active { 
+  display: flex; 
+}
+
+.invoice-modal { 
+  background: #fff; 
+  border-radius: 5px; 
+  max-width: 670px; 
+  width: 97vw; 
+  padding: 36px 39px 38px 39px; 
+  box-shadow: 0 8px 38px rgba(0,0,0,0.23); 
+  position: relative; 
+  font-family: Arial, 'Roboto', sans-serif; 
+  color: #222; 
+  animation: fadein 0.18s; 
+}
+
+.invoice-close { 
+  position: absolute; 
+  right: 17px; 
+  top: 13px; 
+  background: none; 
+  border: none; 
+  font-size: 26px; 
+  color: #888; 
+  cursor: pointer; 
+}
+
+.invoice-header-row { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: flex-start; 
+  margin-bottom: 13px; 
+}
+
+.invoice-google-logo { 
+  height: 32px; 
+  margin-bottom: 7px; 
+  margin-top: 2px; 
+}
+
+.invoice-h1 { 
+  font-family: Arial, Helvetica, sans-serif; 
+  font-size: 24px; 
+  font-weight: 400; 
+  margin: 0; 
+  margin-bottom: 17px; 
+  letter-spacing: 0.2px; 
+  color: #333; 
+  text-align: right; 
+}
+
+.invoice-company { 
+  font-size: 15px; 
+  color: #222; 
+  margin-bottom: 10px; 
+  line-height: 1.5; 
+  font-family: Arial, Helvetica, sans-serif; 
+  margin-top: 0; 
+}
+
+.invoice-details { 
+  font-size: 15px; 
+  color: #222; 
+  text-align: right; 
+  line-height: 1.56; 
+  font-family: Arial, Helvetica, sans-serif; 
+}
+
+.invoice-table { 
+  border-collapse: collapse; 
+  width: 100%; 
+  margin-top: 33px; 
+  margin-bottom: 10px; 
+}
+
+.invoice-table th, .invoice-table td { 
+  border: 1px solid #222; 
+  padding: 7px 12px; 
+  font-size: 16px; 
+  text-align: left; 
+  font-family: Arial, Helvetica, sans-serif; 
+}
+
+.invoice-table th { 
+  background: #fff; 
+  font-weight: normal; 
+}
+
+.invoice-table td:last-child, .invoice-table th:last-child { 
+  text-align: right; 
+}
+
+.invoice-label { 
+  color: #222; 
+  font-family: Arial, Helvetica, sans-serif; 
+  font-weight: normal; 
+  margin-right: 6px; 
+}
+
+.invoice-company-bold { 
+  font-weight: bold; 
+  font-family: Arial, Helvetica, sans-serif; 
+  font-size: 15px; 
+  color: #222; 
+}
+
+@media (max-width: 650px) { 
+  .invoice-modal { 
+    padding: 18px 3vw 18px 3vw; 
+  } 
+  
+  .invoice-header-row { 
+    flex-direction: column; 
+  } 
+  
+  .invoice-details { 
+    text-align: left; 
+  } 
+}
+
+@keyframes fadein {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
